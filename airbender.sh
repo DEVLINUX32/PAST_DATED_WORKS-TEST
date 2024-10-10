@@ -27,17 +27,7 @@ if [ ! -x "/usr/bin/tee" ] || [ ! -x "/usr/bin/timeout" ]; then
     fi
     exit 0;
 fi
-###//////////////////////////////////////////////////
-
-function band_2_4ghz_thread()
-{
-script_content_2_4ghz=$(cat <<'EOF'
-###///START_OF_FILE
-###////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-###LOCKING SCRIPT TO PREVENT REDUNDANT/DUPLICATE PROCESSES FROM EXECUTING IN THE BACKGROUND,HELPFUL IN AVOIDING MULTIPLE INSTANCES OF THE SAME SCRIPT RUNNING
-###SIMULTANEOUSLY IF REQUESTED,MULTIPLE TIMES BY THE USER IN THE CLOUD, WHETHER INTENTIONALLY OR ACCIDENTALLY.
-LOCK_FILE="/var/run/airbender_2_4GHz.lock"       ###LOCK INITIATING
-if ( set -o noclobber; echo "$$" > "$LOCK_FILE") 2> /dev/null;  ###LOCK CONDITION CHECK
+###/K_FILE") 2> /dev/null;  ###LOCK CONDITION CHECK
 then
     trap 'rm -f "$LOCK_FILE"; exit $?' INT TERM EXIT
             ###//////////////////////////////////////////////
